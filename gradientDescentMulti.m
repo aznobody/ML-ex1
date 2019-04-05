@@ -17,14 +17,16 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
-
-
-
-
-
-
-
-
+    m=size(X,1);
+    predictions=X*theta;
+    errors=predictions-y;
+    summation=X'*errors;
+    delta=summation/m;
+    gradient=alpha*delta;
+    theta=theta-gradient;
+    J=computeCost(X, y, theta);
+    disp(J);
+    disp(gradient);
 
 
     % ============================================================
